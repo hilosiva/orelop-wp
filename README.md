@@ -30,9 +30,7 @@ npm install
 yarn install
 ```
 
-## 使い方
-
-### 開発用サーバーの起動
+## 開発用サーバーの起動
 
 以下のコマンドで WordPress の環境と開発用サーバーを起動できます。
 
@@ -120,13 +118,13 @@ npm run wp:destroy
 yarn wp:destroy
 ```
 
-### WordPress テーマの作成
+## WordPress テーマの作成
 
 WordPress テーマの PHP ファイルは「src」ディレクトリに配置して下さい。
 
 ※「functions.php」内にある、各 PHP ファイルのインクルードと、その読み込み先である「inc」ディレクトリ内のファイルは削除しないでください。
 
-#### 画像の利用
+### 画像の利用
 
 テーマ内で利用する画像は「src/assets/img/」内に配置して下さい。
 
@@ -148,11 +146,11 @@ WordPress テーマの PHP ファイルは「src」ディレクトリに配置�
 <img src="http://localhost:10012/wp-content/themes/orelop-wp/assets/img/cover.jpg" width="3024" height="4032" alt="" decoding="async" loading="lazy" />
 ```
 
-### CSS/SCSS の開発
+## CSS/SCSS の開発
 
 「Orelop WP」は、CSS、SCSS のどちらの開発にも対応しています。
 
-#### CSS で開発
+### CSS で開発
 
 CSS で開発するには「src/assets/css/」ディレクトリ内にある「style.css」を利用して下さい。
 
@@ -190,7 +188,7 @@ import "../css/common.css";
 @import "object/post.css";
 ```
 
-#### SCSS で開発
+### SCSS で開発
 
 scss を使って CSS を開発する場合は、「src/assets/scss/」ディレクトリ内にある「style.scss」を利用して下さい。
 
@@ -203,7 +201,7 @@ glob パターンによる読み込みにも対応しています。
 @use "layout/**/*.scss";
 ```
 
-### JavaScript の開発
+## JavaScript の開発
 
 JavaScript の開発は「src/assets/js/」ディレクトリ内の「main.js」を利用して下さい。
 
