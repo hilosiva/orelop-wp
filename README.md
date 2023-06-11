@@ -165,7 +165,7 @@ WordPress テーマの PHP ファイルは「src」ディレクトリに配置�
 開発環境では以下の HTML が出力されます。
 
 ```html
-<img src="http://localhost:10012/wp-content/themes/new_theme/assets/img/cover.jpg" width="3024" height="4032" alt="" decoding="async" loading="lazy" />
+<img src="http://localhost:10012/wp-content/themes/orelop-wp/assets/img/cover.jpg" width="3024" height="4032" alt="" decoding="async" loading="lazy" />
 ```
 
 ### CSS/SCSS の開発
@@ -209,12 +209,6 @@ import "../css/common.css";
 @import "object/hero.css";
 @import "object/post.css";
 ```
-
-開発は「src」ディレクトリ内で行います。
-
-- js： src/assets/js/main.js
-- scss: src/assets/scss/style.scss
-- css: src/assets/css/style.css
 
 #### SCSS で開発
 
