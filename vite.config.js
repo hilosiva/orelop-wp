@@ -141,7 +141,7 @@ export default defineConfig({
     },
     proxy: {
       "^(?!/(assets|@vite|@fs)/|/[^/]+\\.(gif|jpeg|jpg|png|svg|webp|txt|pdf|mp4|webm|mov|htaccess)$)": {
-        target: "http://localhost:10012",
+        target: "http://localhost:10011",
         changeOrigin: true,
         ws: true,
       },

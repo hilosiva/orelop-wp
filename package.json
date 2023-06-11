@@ -11,12 +11,13 @@
     "wp:start": "wp-env start",
     "wp:update": "wp-env start --update",
     "wp:stop": "wp-env stop",
-    "wp:destroy": "wp-env destroy",
+    "wp:destroy": "wp-env stop && wp-env destroy",
     "wp:import": "wp-env run cli wp db import sql/wpenv.sql",
     "wp:export": "wp-env run cli wp db export sql/wpenv.sql",
-    "dev": "cross-env NODE_ENV=development vite --host",
+    "wp:status": "docker ps",
+    "dev": "wp-env start && wp-env run cli wp theme activate development && vite --host",
     "build": "vite build",
-    "preview": "vite preview --host"
+    "preview": "wp-env start && wp-env run cli wp theme activate production && vite preview --host"
   },
   "devDependencies": {
     "@wordpress/env": "^8.1.0",
