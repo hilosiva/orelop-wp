@@ -1,0 +1,43 @@
+{
+  "name": "orelopwp",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    "wp-env": "wp-env",
+    "wp:start": "wp-env start",
+    "wp:update": "wp-env start --update",
+    "wp:stop": "wp-env stop",
+    "wp:destroy": "wp-env destroy",
+    "wp:import": "wp-env run cli wp db import sql/wpenv.sql",
+    "wp:export": "wp-env run cli wp db export sql/wpenv.sql",
+    "dev": "cross-env NODE_ENV=development vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host"
+  },
+  "devDependencies": {
+    "@wordpress/env": "^8.1.0",
+    "autoprefixer": "^10.4.14",
+    "cross-env": "^7.0.3",
+    "css-declaration-sorter": "^7.0.0",
+    "css-mqpacker": "^7.0.0",
+    "fs": "^0.0.1-security",
+    "globule": "^1.3.4",
+    "handlebars": "^4.7.7",
+    "path": "^0.12.7",
+    "postcss-nesting": "^11.2.2",
+    "prettier": "^2.8.8",
+    "sass": "^1.63.2",
+    "sharp": "^0.32.1",
+    "svgo": "^3.0.2",
+    "vite": "^4.3.9",
+    "vite-plugin-image-optimizer": "^1.1.6",
+    "vite-plugin-live-reload": "^3.0.2",
+    "vite-plugin-sass-glob-import": "^2.0.0",
+    "vite-plugin-static-copy": "^0.16.0"
+  },
+  "dependencies": {}
+}

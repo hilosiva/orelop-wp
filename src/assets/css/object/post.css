@@ -1,0 +1,22 @@
+.post {
+  position: absolute;
+  bottom: 5rem;
+  left: 0rem;
+}
+
+.post__link {
+  display: inline-block;
+  width: 70%;
+  color: #fff;
+  text-decoration: none;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+.post__title {
+  font-size: 1rem;
+}
+.post__body {
+  font-size: 0.875rem;
+}
