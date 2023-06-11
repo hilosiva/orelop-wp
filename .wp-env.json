@@ -8,7 +8,7 @@
     "tests": {
       "port": 10012,
       "mappings": {
-        "wp-content/themes/new_theme/": "./src",
+        "wp-content/themes/orelop-wp/": "./src",
         "sql": "./sql"
       }
     }
@@ -19,7 +19,7 @@
     "WP_MEMORY_LIMIT": "256M"
   },
   "mappings": {
-    "wp-content/themes/new_theme/": "./dist",
+    "wp-content/themes/orelop-wp/": "./dist",
     "sql": "./sql"
   }
 }
