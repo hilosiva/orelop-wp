@@ -1,5 +1,8 @@
 # Orelop WP（仮）
 
+![screenshot](https://github.com/hilosiva/orelop-wp/blob/main/src/screenshot.png)
+
+
 ## 概要
 
 Orelop WP は、俺流の WordPress テーマ開発環境です。
