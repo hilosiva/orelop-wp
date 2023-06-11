@@ -303,4 +303,4 @@ yarn wp:import
 
 ## ライセンス
 
-MIT
+[GNU General Public License v3 or later](https://www.gnu.org/licenses/gpl-3.0.html)
