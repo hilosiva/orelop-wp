@@ -32,25 +32,30 @@ yarn install
 
 ## 使い方
 
-### WordPress のインストールとサーバーの立ち上げ
+### 開発用サーバーの起動
 
-WordPress 環境は以下のコマンドで構築できます。
+以下のコマンドで WordPress の環境と開発用サーバーを起動できます。
 
 ■ npm
 
 ```
-npm run wp:start
+npm run dev
 ```
 
 ■ yarn
 
 ```
-yarn wp:start
+yarn dev
 ```
 
-インストールが完了すると、WordPress の環境が立ち上がります。
+※初回は WordPress の環境を構築するため時間が掛かります。
 
-※初回はインストールを行うため時間が掛かります。
+開発環境は、[http://localhost:3000](http://localhost:3000)で立ち上がります。
+
+WordPress の管理画面は、[http://localhost:3000/wp-admin/](http://localhost:3000/wp-admin/)でアクセスできます。
+
+- ユーザ名：admin
+- パスワード：password
 
 #### WordPress のサーバーが立ち上がったかを確認する
 
@@ -60,23 +65,7 @@ yarn wp:start
 docker ps
 ```
 
-### WordPress のサーバーを停止
-
-WordPress の環境を停止するには以下のコマンドを実行します。
-
-■ npm
-
-```
-npm run wp:stop
-```
-
-■ yarn
-
-```
-yarn wp:stop
-```
-
-### WordPress の環境を変更する
+#### WordPress の環境を変更する
 
 デフォルトでは、WordPress の日本語の最新版がインストールされます。
 
@@ -99,6 +88,22 @@ npm run wp:update
 yarn wp:update
 ```
 
+### WordPress のサーバーを停止
+
+開発を中断するなど、WordPress の環境を停止するには以下のコマンドを実行します。
+
+■ npm
+
+```
+npm run wp:stop
+```
+
+■ yarn
+
+```
+yarn wp:stop
+```
+
 ### WordPress のサーバーを破棄する
 
 開発が終了したなどにより、WordPress の環境を破棄する場合は、以下のコマンドを実行することで、Docker イメージごと削除することができます。
@@ -114,31 +119,6 @@ npm run wp:destroy
 ```
 yarn wp:destroy
 ```
-
-### フロントエンド開発サーバーの起動
-
-■ npm
-
-```
-npm run dev
-```
-
-■ yarn
-
-```
-yarn dev
-```
-
-開発環境は、[http://localhost:3000](http://localhost:3000)で立ち上がります。
-
-WordPress の管理画面は、[http://localhost:3000/wp-admin/](http://localhost:3000/wp-admin/)でアクセスできます。
-
-- ユーザ名：admin
-- パスワード：password
-
-#### 「Orelop WP」の有効化
-
-初回の立ち上げ時は、「Orelop WP」のテーマが有効になっていないため、管理画面の「外観」→「テーマ」から「Orelop WP」を有効化して下さい。
 
 ### WordPress テーマの作成
 
@@ -180,7 +160,7 @@ CSS で開発するには「src/assets/css/」ディレクトリ内にある「s
 
 例：css のファイル名を「common.css」に変更
 
-```js:main.js
+```js
 // import "../css/style.css";
 import "../css/common.css";
 ```
@@ -189,7 +169,7 @@ import "../css/common.css";
 
 例
 
-```css:style.css
+```css
 .hero__figure {
   height: 100vh;
 
@@ -205,7 +185,7 @@ import "../css/common.css";
 
 例：「object」ディレクトリ内の「hero.css」と「post.css」の読み込み
 
-```css:style.css
+```css
 @import "object/hero.css";
 @import "object/post.css";
 ```
@@ -218,7 +198,7 @@ glob パターンによる読み込みにも対応しています。
 
 例：「fondation」ディレクトリと「layout」ディレクトリ内にあるすべての.scss ファイルの読み込み
 
-```scss:style.scss
+```scss
 @use "foundation/**/*.scss";
 @use "layout/**/*.scss";
 ```
@@ -266,8 +246,6 @@ npm run preview
 ```
 yarn preview
 ```
-
-※WordPress は、開発用とは別の新しい preview 用の WordPress となるため、管理画面からテーマを有効化したり、記事を投稿する必要があります。
 
 ## データベースのエクスポート
 
