@@ -57,7 +57,7 @@ WordPress の管理画面は、[http://localhost:3000/wp-admin/](http://localhos
 - ユーザ名：admin
 - パスワード：password
 
-#### WordPress のサーバーが立ち上がったかを確認する
+### WordPress のサーバーが立ち上がったかを確認する
 
 以下のコマンドで、サーバーが立ち上がっているかを確認できます。
 
@@ -65,7 +65,7 @@ WordPress の管理画面は、[http://localhost:3000/wp-admin/](http://localhos
 docker ps
 ```
 
-#### WordPress の環境を変更する
+### WordPress の環境を変更する
 
 デフォルトでは、WordPress の日本語の最新版がインストールされます。
 
