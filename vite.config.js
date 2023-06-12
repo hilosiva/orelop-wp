@@ -83,7 +83,7 @@ export default defineConfig({
           rename: "config.php",
         },
         {
-          src: ["./**/*.php", "./style.css", "./screenshot.png", "!./inc/config.php", "!./inc/production.php"],
+          src: ["./**/*.php", "./style.css", , "./*.txt", "./screenshot.png", "!./inc/config.php", "!./inc/production.php"],
           dest: "./",
         },
       ],
@@ -141,7 +141,7 @@ export default defineConfig({
     },
     proxy: {
       "^(?!/(assets|@vite|@fs)/|/[^/]+\\.(gif|jpeg|jpg|png|svg|webp|txt|pdf|mp4|webm|mov|htaccess)$)": {
-        target: "http://localhost:10011",
+        target: "http://localhost:8080",
         changeOrigin: true,
         ws: true,
       },
@@ -151,7 +151,7 @@ export default defineConfig({
   preview: {
     proxy: {
       "/": {
-        target: "http://localhost:10011",
+        target: "http://localhost:8080",
         changeOrigin: true,
         ws: true,
       },

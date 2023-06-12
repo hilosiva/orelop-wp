@@ -3,10 +3,10 @@
   "phpVersion": null,
   "plugins": ["https://downloads.wordpress.org/plugin/query-monitor.3.7.1.zip", "https://downloads.wordpress.org/plugin/wp-multibyte-patch.2.9.zip"],
   "themes": [],
-  "port": 10011,
+  "port": 8080,
   "env": {
     "tests": {
-      "port": 10012,
+      "port": 8888,
       "mappings": {
         "wp-content/themes/test/": "./src",
         "sql": "./sql"

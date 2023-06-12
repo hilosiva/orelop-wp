@@ -131,19 +131,19 @@ WordPress テーマの PHP ファイルは「src」ディレクトリに配置�
 なお、上記ディレクトリにある画像を、img 要素で読み込む場合は、`the_assets_image()` という Orelop WP のオリジナル関数を利用して下さい。
 
 ```php
-<img <?php the_assets_image('画像のパス', '代替えテキスト(省略時：空のテキスト)', '画像の幅(省略時：元ファイルの幅)', '画像の高さ(省略時：元ファイルの高さ)', 'decoding属性をasyncにするか？(省略時:true)', 'loading属性をlazyにするか？(省略時:true)'); ?>>
+<?php the_assets_image('画像ファイルの相対パス', '代替えテキスト(省略時：空のテキスト)', '画像の幅(省略時：元ファイルの幅)', '画像の高さ(省略時：元ファイルの高さ)', 'decoding属性をasyncにするか？(省略時:true)', 'loading属性をlazyにするか？(省略時:true)'); ?>
 ```
 
 例
 
 ```php
-<img <?php the_assets_image('assets/img/cover.jpg', 'マンホールの上には、たくさんの草が覆い被さっている' ); ?>>
+<?php the_assets_image('assets/img/cover.jpg', 'マンホールの上には、たくさんの草が覆い被さっている' ); ?>
 ```
 
 開発環境では以下の HTML が出力されます。
 
 ```html
-<img src="http://localhost:10012/wp-content/themes/orelop-wp/assets/img/cover.jpg" width="3024" height="4032" alt="" decoding="async" loading="lazy" />
+<img src="http://localhost:8080/wp-content/themes/development/assets/img/cover.jpg" width="3024" height="4032" alt="" decoding="async" loading="lazy" />
 ```
 
 ## CSS/SCSS の開発
