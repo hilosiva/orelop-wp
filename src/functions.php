@@ -11,12 +11,13 @@ require_once('inc/utility.php');
 /*======================================
   初期設定
 ======================================*/
-function mytheme_setup() {
+function mytheme_setup()
+{
 
   /*
     Titleタグ
   ----------------------------------- */
-  add_theme_support( 'title-tag' );
+  add_theme_support('title-tag');
 
   /*
     HTML5をサポート
@@ -30,7 +31,7 @@ function mytheme_setup() {
     'style',
     'script'
   ];
-  add_theme_support( 'html5', $args);
+  add_theme_support('html5', $args);
 
 
 
@@ -38,7 +39,7 @@ function mytheme_setup() {
   /*
     アイキャッチ画像
   ----------------------------------- */
-  add_theme_support( 'post-thumbnails' );
+  add_theme_support('post-thumbnails');
 
 
   /*
@@ -49,23 +50,26 @@ function mytheme_setup() {
   ];
   register_nav_menus($locations);
 }
-add_action( 'after_setup_theme', 'mytheme_setup' );
+add_action('after_setup_theme', 'mytheme_setup');
 
 
 /*======================================
   Originの設定
 ======================================*/
-function cors_http_header() {
-  header( "Access-Control-Allow-Origin: *" );
+function cors_http_header()
+{
+  header("Access-Control-Allow-Origin: *");
 }
-add_action( 'send_headers', 'cors_http_header' );
+add_action('send_headers', 'cors_http_header');
 
 
 /*======================================
   画質の劣化の無効化
 ======================================*/
-add_filter('jpeg_quality', function($arg){return 100;});
-add_filter( 'big_image_size_threshold', '__return_false' );
+add_filter('jpeg_quality', function ($arg) {
+  return 100;
+});
+add_filter('big_image_size_threshold', '__return_false');
 
 
 /*======================================
