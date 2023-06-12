@@ -46,6 +46,6 @@ function the_assets_image($path, $alt = "" , $width = false, $height = false, $d
     'loading' => $loading ? 'lazy' : 'eager',
   ];
 
-  echo 'src="' . esc_url($imageInfo['url']) . '" width="' . esc_attr($imageInfo['width']) . '" height="' . esc_attr($imageInfo['height']) . '" alt="' . esc_attr($imageInfo['alt']) . '" decoding="' . esc_attr($imageInfo['decoding']) . '" loading="' . esc_attr($imageInfo['loading']) . '"';
+  echo '<img src="' . esc_url($imageInfo['url']) . '" alt="' . esc_attr($imageInfo['alt']) . '" width="' . esc_attr($imageInfo['width']) . '" height="' . esc_attr($imageInfo['height']) . '" decoding="' . esc_attr($imageInfo['decoding']) . '" loading="' . esc_attr($imageInfo['loading']) . '">';
 
 }

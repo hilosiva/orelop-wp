@@ -5,6 +5,6 @@
   </div>
 
   <figure class="hero__figure">
-    <img <?php the_assets_image('assets/img/cover.jpg') ; ?>>
+    <?php the_assets_image('assets/img/cover.jpg') ; ?>
   </figure>
 </div>
