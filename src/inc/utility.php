@@ -16,7 +16,6 @@
 function the_assets_image($path, $alt = "", $width = false, $height = false, $decoding = true, $loading = true)
 {
 
-
   if (substr((string)$path, 0, 4) === "http") {
     echo 'src="' . esc_url($path) . '" width="' . esc_attr($width) . '" height="' . esc_attr($height) . '" alt="' . esc_attr($alt) . '" decoding="' . esc_attr($decoding ? 'async' : 'auto') . '" loading="' . esc_attr($loading ? 'lazy' : 'eager') . '"';
     return false;
@@ -40,8 +39,8 @@ function the_assets_image($path, $alt = "", $width = false, $height = false, $de
   $imageInfo = [
     'url' => $image_url,
     'alt' => $alt,
-    'width' =>  $imageSize[0],
-    'height' =>  $imageSize[1],
+    'width' =>  $width ? (int)$width : $imageSize[0],
+    'height' =>  $height ? (int)$height : $imageSize[1],
     'decoding' => $decoding ? 'async' : 'auto',
     'loading' => $loading ? 'lazy' : 'eager',
   ];
