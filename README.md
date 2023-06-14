@@ -13,7 +13,7 @@ WordPress の環境には「[wp-env](https://ja.wordpress.org/team/handbook/bloc
 Orelop WP を利用するには、あらかじめ以下のツールをマシンにインストールしておいて下さい。
 
 - [Docker](https://www.docker.com/)
-- [Node.js](https://nodejs.org/ja) >=16.0.0
+- [Node.js](https://nodejs.org/ja) >=16.4.0
 - [git](https://git-scm.com/)
 
   ターミナルを起動し「orelop-wp」ディレクトリに移動後、以下のコマンドを入力するとインストールが始まります。

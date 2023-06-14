@@ -1,6 +1,14 @@
 {
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true,
+    "source.fixAll": true
+  },
+  "less.validate": false,
+  "scss.validate": false,
+  "css.validate": false,
+  "stylelint.validate": ["css", "less", "postcss", "scss", "sass"],
   "intelephense.stubs": [
     "apache",
     "bcmath",
@@ -75,5 +83,8 @@
     "zip",
     "zlib",
     "wordpress"
-  ]
+  ],
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  }
 }

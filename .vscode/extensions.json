@@ -1,6 +1,3 @@
 {
-  "recommendations": [
-    "yusukehirao.vscode-markuplint",
-    "bmewburn.vscode-intelephense-client"
-  ]
+  "recommendations": ["yusukehirao.vscode-markuplint", "bmewburn.vscode-intelephense-client", "stylelint.vscode-stylelint", "esbenp.prettier-vscode"]
 }

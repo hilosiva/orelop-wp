@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
-
+@import "https://fonts.googleapis.com/css2?family=Orbitron&display=swap";
 @import "object/hero";
 @import "object/post";
