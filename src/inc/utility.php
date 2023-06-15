@@ -21,7 +21,7 @@ function the_assets_image($path, $alt = "", $width = false, $height = false, $de
     return false;
   }
 
-  if (defined('IS_VITE_DEVELOPMENT') && IS_VITE_DEVELOPMENT) {
+  if (defined('IS_DEVELOPMENT') && IS_DEVELOPMENT) {
     $image_url = DIST_URL . '/' . $path;
     $image_root_path = __DIR__ . '/../' . $path;
   } else {

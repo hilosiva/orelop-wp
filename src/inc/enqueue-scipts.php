@@ -3,11 +3,11 @@
   スタイル・スクリプトの追加
 ======================================*/
 
-if (defined('IS_VITE_DEVELOPMENT') && IS_VITE_DEVELOPMENT) {
+if (defined('IS_DEVELOPMENT') && IS_DEVELOPMENT) {
 
   function vite_development_scripts()
   {
-    echo '<script type="module" crossorigin src="' . VITE_SERVER . '/' . VITE_ENTRY_POINT . '"></script>';
+    echo '<script type="module" crossorigin src="' . VITE_SERVER . '/' . ENTRY_POINT . '"></script>';
     echo '<script type="module" crossorigin src="' . VITE_SERVER . '/@vite/client' . '"></script>';
   }
   add_action('wp_head', 'vite_development_scripts');
@@ -17,11 +17,11 @@ if (defined('IS_VITE_DEVELOPMENT') && IS_VITE_DEVELOPMENT) {
 function theme_scripts()
 {
 
-  if (!defined('IS_VITE_DEVELOPMENT') || !IS_VITE_DEVELOPMENT) {
+  if (!defined('IS_DEVELOPMENT') || !IS_DEVELOPMENT) {
 
-    if (is_array(MANIFEST) && isset(MANIFEST[VITE_ENTRY_POINT])) {
+    if (is_array(MANIFEST) && isset(MANIFEST[ENTRY_POINT])) {
 
-      $enqueues = MANIFEST[VITE_ENTRY_POINT];
+      $enqueues = MANIFEST[ENTRY_POINT];
 
       if (isset($enqueues['css'])) {
         foreach ($enqueues['css'] as $key => $css_file) {

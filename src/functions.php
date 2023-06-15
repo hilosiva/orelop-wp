@@ -11,7 +11,7 @@ require_once('inc/utility.php');
 /*======================================
   初期設定
 ======================================*/
-function mytheme_setup()
+function theme_setup()
 {
 
   /*
@@ -50,7 +50,7 @@ function mytheme_setup()
   ];
   register_nav_menus($locations);
 }
-add_action('after_setup_theme', 'mytheme_setup');
+add_action('after_setup_theme', 'theme_setup');
 
 
 /*======================================
