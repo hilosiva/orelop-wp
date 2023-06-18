@@ -8,7 +8,7 @@ Orelop WP は、俺流の WordPress テーマ開発環境です。
 WordPress の環境には「[wp-env](https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/)」を利用し、フロントエンドツールには「[vite](https://ja.vitejs.dev/)
 」を利用しているため、オールインワンで高速に WordPress のテーマを開発することが可能です。
 
-## インストール
+## 準備
 
 Orelop WP を利用するには、あらかじめ以下のツールをマシンにインストールしておいて下さい。
 
@@ -17,6 +17,32 @@ Orelop WP を利用するには、あらかじめ以下のツールをマシン�
 - [git](https://git-scm.com/)
 
   ターミナルを起動し「orelop-wp」ディレクトリに移動後、以下のコマンドを入力するとインストールが始まります。
+
+## インストール
+
+> **注意**
+>
+> Orelop Wp は、GitHub Package に公開されているパッケージを利用するため、インストールには、GitHub の「[Personal access tokens (classic)](https://github.com/settings/tokens)」が必要となります。
+>
+> すでに、お使いのマシンのホームディレクトリに、 GitHub の「 > **read:packages** 」権限を付与した「[Personal access tokens > (classic)](https://github.com/settings/tokens)」を記述した、「.npmrc」ファイルを作成されていない場合は、以下の操作で「.npmrc」ファイルを作成し、GitHub Package をインストールできるようにしておいて下さい。
+>
+> 1. GitHub の「 **read:packages** 」権限を付与した「[Personal access tokens (classic)](https://github.com/settings/tokens)」を取得
+> 2. お使いのマシンのホームディレクトリ（他のプロジェクトでも使える）かプロジェクトのルートディレクトリ（このプロジェクトのみ使える）に「.npmrc」ファイルを作成し、以下の内容で保存
+>
+> ```
+> @{GitHubのユーザ名}:registry="https://npm.pkg.github.com"
+> //npm.pkg.github.com/:_authToken={Personal access tokens}
+> ```
+>
+> ※ {GitHub のユーザ名} は GitHub のユーザ名か組織名に置き換える
+> ※ {Personal access tokens} は「1」で取得したトークンに置き換える
+>
+> 例
+>
+> ```
+> @hilosiva:registry="https://npm.pkg.github.com"
+> //npm.pkg.github.com/:_authToken=ghp_XXXXXXXXXXXXXXXXXXXXX
+> ```
 
 ■ npm
 
@@ -28,6 +54,12 @@ npm install
 
 ```
 yarn install
+```
+
+■ pnpm
+
+```
+pnpm install
 ```
 
 ## 開発用サーバーの起動
@@ -122,28 +154,17 @@ yarn wp:destroy
 
 WordPress テーマの PHP ファイルは「src」ディレクトリに配置して下さい。
 
-※「functions.php」内にある、各 PHP ファイルのインクルードと、その読み込み先である「inc」ディレクトリ内のファイルは削除しないでください。
+※「functions.php」の冒頭にある、`require_once('lib/ViteHelper.php'); ` と、その読み込み先である「lib」ディレクトリ内の「ViteHelper.php」は削除しないでください。
 
-### 画像の利用
+### Public ディレクトリ内のアセット
 
-テーマ内で利用する画像は「src/assets/img/」内に配置して下さい。
+「Public」ディレクトリ内に保存したファイルは、ビルド後に納品用テーマディレクトリとして「dist」ディレクトリにコピーされます。従って開発時とディレクトリの構造が変わるため、以下のいずれかの対策を講じて下さい。
 
-なお、上記ディレクトリにある画像を、img 要素で読み込む場合は、`the_assets_image()` という Orelop WP のオリジナル関数を利用して下さい。
-
-```php
-<?php the_assets_image('画像ファイルの相対パス', '代替えテキスト(省略時：空のテキスト)', '画像の幅(省略時：元ファイルの幅)', '画像の高さ(省略時：元ファイルの高さ)', 'decoding属性をasyncにするか？(省略時:true)', 'loading属性をlazyにするか？(省略時:true)'); ?>
-```
-
-例
+- 「Public」ディレクトリ内にある画像ファイルなどを本番サーバーのルートディレクトリにアップロード
+- 「Public」ディレクトリ内のファイルを参照するファイルパスの冒頭に`ViteHelper::PUBLIC_URL` 定数を利用してパスを補完する。
 
 ```php
-<?php the_assets_image('assets/img/cover.jpg', 'マンホールの上には、たくさんの草が覆い被さっている' ); ?>
-```
-
-開発環境では以下の HTML が出力されます。
-
-```html
-<img src="http://localhost:8080/wp-content/themes/development/assets/img/cover.jpg" width="3024" height="4032" alt="" decoding="async" loading="lazy" />
+ <link rel="icon" href="<?php echo esc_url(ViteHelper::PUBLIC_URL); ?>/favicon.ico">
 ```
 
 ## CSS/SCSS の開発
@@ -223,7 +244,11 @@ npm run build
 yarn build
 ```
 
-ビルドを行うと、「src/assets/img/」ディレクトリ内の画像ファイルを圧縮し、ハッシュ値をつけて「dist/assets/img/」内に配置されます。
+ビルドを行うと、「src/assets/img/」ディレクトリ内の画像ファイルを最適化（圧縮や、webp ファイルなどの生成）を行い、ハッシュ値をつけて「dist/assets/img/」内に配置されます。
+
+画像の圧縮率や、生成するフォーマットなどに関しては、[vite-plugin-image-oretimaizer](https://github.com/hilosiva/vite-plugin-image-oretimaizer)を利用しているため、[vite-plugin-image-oretimaizer](https://github.com/hilosiva/vite-plugin-image-oretimaizer)のオプションで設定して下さい。
+
+PHP ファイルや、css ファイル内の画像ファイルのパスは自動でファイルパスが置き換わります。（webp が利用できるブラウザで閲覧した場合、「.jpg」や「.png」ファイルは、webp ファイルがレスポンスされます。）
 
 .scss ファイルや.css ファイルは、「dist/assets/css/」内に「main-[ハッシュ値].css」というファイル名で配置されます。
 

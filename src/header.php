@@ -4,7 +4,7 @@
 <head>
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" type="image/svg+xml" href="<?php echo esc_url(PUBLIC_URL); ?>/favicon.svg">
+  <link rel="shortcut icon" type="image/svg+xml" href="<?php echo esc_url(ViteHelper::PUBLIC_URL); ?>/favicon.svg">
   <?php wp_head(); ?>
 </head>
 

@@ -2,10 +2,8 @@
 /*======================================
   Includes
 ======================================*/
-require_once('inc/config.php');
-require_once('inc/define.php');
-require_once('inc/enqueue-scipts.php');
-require_once('inc/utility.php');
+require_once('lib/ViteHelper.php'); // こちは削除しないでください。
+
 
 
 /*======================================
@@ -53,14 +51,6 @@ function theme_setup()
 add_action('after_setup_theme', 'theme_setup');
 
 
-/*======================================
-  Originの設定
-======================================*/
-function cors_http_header()
-{
-  header("Access-Control-Allow-Origin: *");
-}
-add_action('send_headers', 'cors_http_header');
 
 
 /*======================================

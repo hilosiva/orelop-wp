@@ -1,7 +1,8 @@
 import { defineConfig } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 import sassGlobImports from "vite-plugin-sass-glob-import";
-import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
+import { ViteImageOretimaizer } from "@hilosiva/vite-plugin-image-oretimaizer";
+import { VitePhpLoader } from "@hilosiva/vite-plugin-php-oreder";
 import path from "path";
 
 const dir = {
@@ -15,65 +16,17 @@ export default defineConfig({
   base: "./",
   publicDir: `../${dir.publicDir}`,
   plugins: [
-    ViteImageOptimizer({
-      svg: {
-        multipass: true,
-        plugins: [
-          {
-            name: "preset-default",
-            params: {
-              overrides: {
-                cleanupNumericValues: false,
-                removeViewBox: false, // https://github.com/svg/svgo/issues/1128
-              },
-              cleanupIDs: {
-                minify: false,
-                remove: false,
-              },
-              convertPathData: false,
-            },
-          },
-          "sortAttrs",
-          {
-            name: "addAttributesToSVGElement",
-            params: {
-              attributes: [{ xmlns: "http://www.w3.org/2000/svg" }],
-            },
-          },
-        ],
-      },
-      png: {
-        quality: 80,
-      },
-      jpeg: {
-        mozjpeg: true,
-        quality: 70,
-      },
-      jpg: {
-        mozjpeg: true,
-        quality: 70,
-      },
-      tiff: {
-        quality: 70,
-      },
-      webp: {
-        lossless: true,
-        quality: 70,
-      },
-      avif: {
-        quality: 70,
+    VitePhpLoader(),
+    ViteImageOretimaizer({
+      generate: {
+        preserveExt: true,
       },
     }),
     sassGlobImports(),
     viteStaticCopy({
       targets: [
         {
-          src: "./inc/production.php",
-          dest: "./",
-          rename: "config.php",
-        },
-        {
-          src: ["./**/*.php", "./style.css", , "./*.txt", "./screenshot.png", "!./inc/config.php", "!./inc/production.php"],
+          src: ["./style.css", "./*.txt", "./screenshot.png"],
           dest: "./",
         },
       ],

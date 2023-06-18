@@ -160,6 +160,16 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.17.19.tgz#8cfaf2ff603e9aabb910e9c0558c26cf32744061"
   integrity sha512-lAhycmKnVOuRYNtRtatQR1LPQf2oYCkRGkSFnseDAKPl8lu5SOsK/e1sXe5a0Pc5kHIHe6P2I/ilntNv2xf3cA==
 
+"@hilosiva/vite-plugin-image-oretimaizer@^0.2.1":
+  version "0.2.1"
+  resolved "https://npm.pkg.github.com/download/@hilosiva/vite-plugin-image-oretimaizer/0.2.1/31a5eb26caa8fa87c40742c8d0d7e93728e54f0c#31a5eb26caa8fa87c40742c8d0d7e93728e54f0c"
+  integrity sha512-uJ0gFGrR3ccrS51OQWptxDzfEieITGsk0JSj0192g0dlD0gIuY1Cq4/Wsu8oOSEcsjAhAYF5R56o7vzzCldyaA==
+
+"@hilosiva/vite-plugin-php-oreder@^0.1.0":
+  version "0.1.0"
+  resolved "https://npm.pkg.github.com/download/@hilosiva/vite-plugin-php-oreder/0.1.0/f703e6a454e7b7326380bd91cce3d170c6451f6a#f703e6a454e7b7326380bd91cce3d170c6451f6a"
+  integrity sha512-qWeLBOwitub+SnUMoZZaHdqBqDa5NT8E/YRiqAigDtf7RNi/VpAncMGwiA84Hy8rvTToy1GLZ3PgGx4YdQkwjQ==
+
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/@isaacs/cliui/-/cliui-8.0.2.tgz#b37667b7bc181c168782259bab42474fbf52b550"
@@ -865,7 +875,7 @@ chardet@^0.7.0:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
 
-"chokidar@>=3.0.0 <4.0.0", chokidar@^3.5.0, chokidar@^3.5.3:
+"chokidar@>=3.0.0 <4.0.0", chokidar@^3.5.3:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
   integrity sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==
@@ -1616,7 +1626,7 @@ glob-parent@^5.1.2, glob-parent@~5.1.2:
   dependencies:
     is-glob "^4.0.1"
 
-glob@^10.2.2:
+glob@^10.2.2, glob@^10.2.7:
   version "10.2.7"
   resolved "https://registry.yarnpkg.com/glob/-/glob-10.2.7.tgz#9dd2828cd5bc7bd861e7738d91e7113dda41d7d8"
   integrity sha512-jTKehsravOJo8IJxUGfZILnkvVJM/MOfHRs8QcXolVef2zNI9Tqyy5+SeuOAZd3upViEZQLyFpQhYiHLrMUNmA==
@@ -2689,11 +2699,6 @@ path@^0.12.7:
     process "^0.11.1"
     util "^0.10.3"
 
-pathe@^1.1.0:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/pathe/-/pathe-1.1.1.tgz#1dd31d382b974ba69809adc9a7a347e65d84829a"
-  integrity sha512-d+RQGp0MAYTIaDBIMmOfMwz3E+LOZnxx1HZd5R18mmCZY0QBlK0LDZfPc8FW8Ed2DlvsuE6PRjroDY+wg4+j/Q==
-
 pend@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/pend/-/pend-1.2.0.tgz#7a57eb550a6783f9115331fcf4663d5c8e007a50"
@@ -3667,22 +3672,6 @@ validate-npm-package-license@^3.0.1, validate-npm-package-license@^3.0.4:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
-
-vite-plugin-image-optimizer@^1.1.6:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/vite-plugin-image-optimizer/-/vite-plugin-image-optimizer-1.1.6.tgz#986c9d415bd5c655eee7a4fcb9ff8a2703926abe"
-  integrity sha512-WxPbME2COPBHXJLQSAy2i9kV2c4gAyNWigH+OMF+dvGACcuVjsJLJKiN3M870jc9op+mEKVSuno7rcr2F7le4Q==
-  dependencies:
-    ansi-colors "^4.1.3"
-    pathe "^1.1.0"
-
-vite-plugin-live-reload@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/vite-plugin-live-reload/-/vite-plugin-live-reload-3.0.2.tgz#d1026a403dc1a8b015aa38cf22db8613957631d2"
-  integrity sha512-7QprEPLN9f4J9ljnovzoe2xmkTKTEn/QpxpwSmvbb2MtRQyWi0c0Zg3+s3cBhxHaKe9eMYHUG4OQGpCYwFwdaw==
-  dependencies:
-    chokidar "^3.5.0"
-    picocolors "^1.0.0"
 
 vite-plugin-sass-glob-import@^2.0.0:
   version "2.0.0"

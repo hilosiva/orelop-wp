@@ -23,11 +23,14 @@
     "lint:css": "stylelint --fix **/*.{css,scss,sass}"
   },
   "devDependencies": {
+    "@hilosiva/vite-plugin-image-oretimaizer": "^0.2.1",
+    "@hilosiva/vite-plugin-php-oreder": "^0.1.0",
     "@markuplint/php-parser": "^3.7.0",
     "@wordpress/env": "^8.1.0",
     "autoprefixer": "^10.4.14",
     "css-declaration-sorter": "^7.0.0",
     "css-mqpacker": "^7.0.0",
+    "glob": "^10.2.7",
     "markuplint": "^3.10.0",
     "path": "^0.12.7",
     "postcss-nesting": "^11.2.2",
@@ -39,8 +42,6 @@
     "stylelint-config-standard-scss": "^9.0.0",
     "svgo": "^3.0.2",
     "vite": "^4.3.9",
-    "vite-plugin-image-optimizer": "^1.1.6",
-    "vite-plugin-live-reload": "^3.0.2",
     "vite-plugin-sass-glob-import": "^2.0.0",
     "vite-plugin-static-copy": "^0.16.0"
   },

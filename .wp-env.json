@@ -21,6 +21,7 @@
   "mappings": {
     "wp-content/themes/development/": "./src",
     "wp-content/themes/production/": "./dist",
+    "wp-content/plugin/": "./plugin",
     "sql": "./sql"
   }
 }
