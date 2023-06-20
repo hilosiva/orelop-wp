@@ -16,7 +16,9 @@ export default defineConfig({
   base: "./",
   publicDir: `../${dir.publicDir}`,
   plugins: [
-    VitePhpLoader(),
+    VitePhpLoader({
+      proxy: "http://localhost:8080",
+    }),
     ViteImageOretimaizer({
       generate: {
         preserveExt: true,
@@ -38,14 +40,9 @@ export default defineConfig({
   ],
   build: {
     outDir: `../${dir.outDir}`,
-    emptyOutDir: true,
-    manifest: true,
     target: "es2018",
     cssTarget: "safari14",
     rollupOptions: {
-      input: {
-        main: path.resolve(__dirname + "/src/assets/js/main.js"),
-      },
       output: {
         entryFileNames: `assets/js/[name]-[hash].js`,
         chunkFileNames: `assets/js/[name]-[hash].js`,
@@ -74,7 +71,6 @@ export default defineConfig({
   },
 
   server: {
-    cors: true,
     strictPort: true,
     open: true,
     port: 3000,
@@ -82,24 +78,8 @@ export default defineConfig({
     hmr: {
       host: "localhost",
     },
-    proxy: {
-      "^(?!/(assets|@vite|@fs)/|/[^/]+\\.(gif|jpeg|jpg|png|svg|webp|txt|pdf|mp4|webm|mov|htaccess)$)": {
-        target: "http://localhost:8080",
-        changeOrigin: true,
-        ws: true,
-      },
-    },
   },
 
-  preview: {
-    proxy: {
-      "/": {
-        target: "http://localhost:8080",
-        changeOrigin: true,
-        ws: true,
-      },
-    },
-  },
   css: {
     devSourcemap: true,
   },

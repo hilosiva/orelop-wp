@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@hilosiva/vite-plugin-image-oretimaizer": "^0.2.1",
-    "@hilosiva/vite-plugin-php-oreder": "^0.1.0",
+    "@hilosiva/vite-plugin-php-oreder": "^0.1.2",
     "@markuplint/php-parser": "^3.7.0",
     "@wordpress/env": "^8.1.0",
     "autoprefixer": "^10.4.14",

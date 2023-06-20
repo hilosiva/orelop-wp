@@ -165,10 +165,10 @@
   resolved "https://npm.pkg.github.com/download/@hilosiva/vite-plugin-image-oretimaizer/0.2.1/31a5eb26caa8fa87c40742c8d0d7e93728e54f0c#31a5eb26caa8fa87c40742c8d0d7e93728e54f0c"
   integrity sha512-uJ0gFGrR3ccrS51OQWptxDzfEieITGsk0JSj0192g0dlD0gIuY1Cq4/Wsu8oOSEcsjAhAYF5R56o7vzzCldyaA==
 
-"@hilosiva/vite-plugin-php-oreder@^0.1.0":
-  version "0.1.0"
-  resolved "https://npm.pkg.github.com/download/@hilosiva/vite-plugin-php-oreder/0.1.0/f703e6a454e7b7326380bd91cce3d170c6451f6a#f703e6a454e7b7326380bd91cce3d170c6451f6a"
-  integrity sha512-qWeLBOwitub+SnUMoZZaHdqBqDa5NT8E/YRiqAigDtf7RNi/VpAncMGwiA84Hy8rvTToy1GLZ3PgGx4YdQkwjQ==
+"@hilosiva/vite-plugin-php-oreder@^0.1.2":
+  version "0.1.2"
+  resolved "https://npm.pkg.github.com/download/@hilosiva/vite-plugin-php-oreder/0.1.2/60f6c889b0f72094f0e1ffd1e8481549c705650a#60f6c889b0f72094f0e1ffd1e8481549c705650a"
+  integrity sha512-KLJPI39RAHBC8XPTRQ0bsCtWVOal3GhK77aAq81KoQDcJ7c9VS5rzwUJsMzi6aPggFH/7cJ4Bor8sZvDOsodUQ==
 
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"
