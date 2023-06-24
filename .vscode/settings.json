@@ -9,6 +9,9 @@
   "scss.validate": false,
   "css.validate": false,
   "stylelint.validate": ["css", "less", "postcss", "scss", "sass"],
+  "files.associations": {
+    "*.css": "postcss"
+  },
   "intelephense.stubs": [
     "apache",
     "bcmath",
