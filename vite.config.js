@@ -1,8 +1,8 @@
 import { defineConfig } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 import sassGlobImports from "vite-plugin-sass-glob-import";
-import { ViteImageOretimaizer } from "@hilosiva/vite-plugin-image-oretimaizer";
-import { VitePhpLoader } from "@hilosiva/vite-plugin-php-oreder";
+import { viteImageOretimaizer } from "@hilosiva/vite-plugin-image-oretimaizer";
+import { vitePhpOreder } from "@hilosiva/vite-plugin-php-oreder";
 import path from "path";
 
 const dir = {
@@ -16,10 +16,10 @@ export default defineConfig({
   base: "./",
   publicDir: `../${dir.publicDir}`,
   plugins: [
-    VitePhpLoader({
+    vitePhpOreder({
       proxy: "http://localhost:8080",
     }),
-    ViteImageOretimaizer({
+    viteImageOretimaizer({
       generate: {
         preserveExt: true,
       },

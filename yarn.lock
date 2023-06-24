@@ -160,15 +160,15 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.17.19.tgz#8cfaf2ff603e9aabb910e9c0558c26cf32744061"
   integrity sha512-lAhycmKnVOuRYNtRtatQR1LPQf2oYCkRGkSFnseDAKPl8lu5SOsK/e1sXe5a0Pc5kHIHe6P2I/ilntNv2xf3cA==
 
-"@hilosiva/vite-plugin-image-oretimaizer@^0.2.1":
-  version "0.2.1"
-  resolved "https://npm.pkg.github.com/download/@hilosiva/vite-plugin-image-oretimaizer/0.2.1/31a5eb26caa8fa87c40742c8d0d7e93728e54f0c#31a5eb26caa8fa87c40742c8d0d7e93728e54f0c"
-  integrity sha512-uJ0gFGrR3ccrS51OQWptxDzfEieITGsk0JSj0192g0dlD0gIuY1Cq4/Wsu8oOSEcsjAhAYF5R56o7vzzCldyaA==
+"@hilosiva/vite-plugin-image-oretimaizer@^0.2.2":
+  version "0.2.2"
+  resolved "https://npm.pkg.github.com/download/@hilosiva/vite-plugin-image-oretimaizer/0.2.2/83b3884eeacbb95ab212a5fdd1aa50ae9772ab5a#83b3884eeacbb95ab212a5fdd1aa50ae9772ab5a"
+  integrity sha512-hbxbFmo3qvJrM5rfXxe2Bk2MaXg7WCYHWVRdhGgTR/mFmPXxcm7xo0BYXL4HYqtCJzGUGcVe9YdoD/1cczK6RQ==
 
-"@hilosiva/vite-plugin-php-oreder@^0.1.2":
-  version "0.1.2"
-  resolved "https://npm.pkg.github.com/download/@hilosiva/vite-plugin-php-oreder/0.1.2/60f6c889b0f72094f0e1ffd1e8481549c705650a#60f6c889b0f72094f0e1ffd1e8481549c705650a"
-  integrity sha512-KLJPI39RAHBC8XPTRQ0bsCtWVOal3GhK77aAq81KoQDcJ7c9VS5rzwUJsMzi6aPggFH/7cJ4Bor8sZvDOsodUQ==
+"@hilosiva/vite-plugin-php-oreder@^0.1.3":
+  version "0.1.3"
+  resolved "https://npm.pkg.github.com/download/@hilosiva/vite-plugin-php-oreder/0.1.3/166c938fb1c37f5e47c0fa71b0c2e867f6ae57d4#166c938fb1c37f5e47c0fa71b0c2e867f6ae57d4"
+  integrity sha512-6aUjEL7GO1w9yL1mYAR75AHsfIFOpkTXKY71M5Zg+W+OY/AAu2h28PJ4XaVUGTxBgRH4qQOgceNdyEUfkYBzHQ==
 
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"
