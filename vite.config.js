@@ -18,6 +18,7 @@ export default defineConfig({
   plugins: [
     vitePhpOreder({
       proxy: "http://localhost:8080",
+      useWpEnv: true,
     }),
     viteImageOretimaizer({
       generate: {

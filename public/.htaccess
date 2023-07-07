@@ -3,21 +3,24 @@
 </IfModule>
 
 <IfModule mod_rewrite.c>
-RewriteEngine On
+  RewriteEngine On
 
-RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{HTTP_ACCEPT} image/avif
+  RewriteCond %{REQUEST_URI} (?i)(.*)(\.jpe?g|\.png)$
+  RewriteCond %{DOCUMENT_ROOT}%1%2.avif -f
+  RewriteRule (?i)(.*)(\.jpe?g|\.png)$ %1$2.avif [L,T=image/avif,R]
 
-RewriteCond %{REQUEST_URI} (?i)(.*)(\.jpe?g|\.png)$
-
-RewriteCond %{DOCUMENT_ROOT}%1%2.webp -f
-
-RewriteRule (?i)(.*)(\.jpe?g|\.png)$ %1$2\.webp [L,T=image/webp,R]
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{REQUEST_URI} (?i)(.*)(\.jpe?g|\.png)$
+  RewriteCond %{DOCUMENT_ROOT}%1%2.webp -f
+  RewriteRule (?i)(.*)(\.jpe?g|\.png)$ %1$2.webp [L,T=image/webp,R]
 </IfModule>
 
 <IfModule mod_headers.c>
-Header append Vary Accept env=REDIRECT_accept
+  Header append Vary Accept env=REDIRECT_accept
 </IfModule>
 
 <IfModule mod_mime.c>
-AddType image/webp .webp
+  AddType image/avif .avif
+  AddType image/webp .webp
 </IfModule>
