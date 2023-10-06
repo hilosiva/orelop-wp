@@ -19,9 +19,9 @@
     "wp:serch-replace": "wp-env run cli wp search-replace",
     "wp:create-user": "wp-env run cli wp user create admin admin@example.com --role=administrator --user_pass=password",
     "wp:status": "docker ps",
-    "dev": "wp-env start && wp-env run cli wp theme activate development && vite --host",
+    "dev": "wp-env start && wp-env run cli wp theme activate development && vite",
     "build": "vite build",
-    "preview": "wp-env start && wp-env run cli wp theme activate production && vite preview --host",
+    "preview": "wp-env start && wp-env run cli wp theme activate production && vite preview",
     "lint:html": "markuplint \"**/*.php\"",
     "lint:css": "stylelint --fix **/*.{css,scss,sass}"
   },
