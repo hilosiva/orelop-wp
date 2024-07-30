@@ -2,8 +2,8 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
-    "source.fixAll.stylelint": true,
-    "source.fixAll": true
+    "source.fixAll.stylelint": "explicit",
+    "source.fixAll": "explicit"
   },
   "less.validate": false,
   "scss.validate": false,

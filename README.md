@@ -42,30 +42,6 @@ cd <project-name>
 npm install
 ```
 
-> **注意**
->
-> Orelop Wp は、GitHub Package に公開されているパッケージを利用するため、インストールには、GitHub の「[Personal access tokens (classic)](https://github.com/settings/tokens)」が必要となります。
->
-> すでに、お使いのマシンのホームディレクトリに、 GitHub の「 > **read:packages** 」権限を付与した「[Personal access tokens > (classic)](https://github.com/settings/tokens)」を記述した、「.npmrc」ファイルを作成されていない場合は、以下の操作で「.npmrc」ファイルを作成し、GitHub Package をインストールできるようにしておいて下さい。
->
-> 1. GitHub の「 **read:packages** 」権限を付与した「[Personal access tokens (classic)](https://github.com/settings/tokens)」を取得
-> 2. お使いのマシンのホームディレクトリ（他のプロジェクトでも使える）かプロジェクトのルートディレクトリ（このプロジェクトのみ使える）に「.npmrc」ファイルを作成し、以下の内容で保存
->
-> ```
-> @{GitHubのユーザ名}:registry="https://npm.pkg.github.com"
-> //npm.pkg.github.com/:_authToken={Personal access tokens}
-> ```
->
-> ※ {GitHub のユーザ名} は GitHub のユーザ名か組織名に置き換える
-> ※ {Personal access tokens} は「1」で取得したトークンに置き換える
->
-> 例
->
-> ```
-> @hilosiva:registry="https://npm.pkg.github.com"
-> //npm.pkg.github.com/:_authToken=ghp_XXXXXXXXXXXXXXXXXXXXX
-> ```
-
 ## 開発用サーバーの起動
 
 以下のコマンドで WordPress の環境と開発用サーバーを起動できます。
