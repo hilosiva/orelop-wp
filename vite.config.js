@@ -25,7 +25,7 @@ export default defineConfig({
         preserveExt: true,
       },
     }),
-    sassGlobImports(),
+
     viteStaticCopy({
       targets: [
         {
