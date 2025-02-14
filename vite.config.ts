@@ -40,8 +40,6 @@ export default defineConfig({
   ],
   build: {
     outDir: `../${dir.outDir}`,
-    target: "es2018",
-    cssTarget: "safari14",
     rollupOptions: {
       output: {
         entryFileNames: "assets/scripts/[name]-[hash].js",
