@@ -30,17 +30,17 @@ cd /path/to/project-directory
 
 ■ npm
 ```bash
-npm create orelop@latest
+npm create orelop@latest --template=wp
 ```
 
 ■ yarn
 ```bash
-yarn create orelop@latest
+yarn create orelop@latest --template=wp
 ```
 
 ■ pnpm
 ```bash
-pnpm create orelop@latest
+pnpm create orelop@latest --template=wp
 ```
 
 
