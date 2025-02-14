@@ -13,8 +13,7 @@ WordPress の環境には「[wp-env](https://ja.wordpress.org/team/handbook/bloc
 Orelop WP を利用するには、あらかじめ以下のツールをマシンにインストールしておいて下さい。
 
 - [Docker](https://www.docker.com/)
-- [Node.js](https://nodejs.org/ja) >=20
-- [git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/ja) >= 20
 
 
 ## インストール
@@ -45,9 +44,10 @@ pnpm create orelop@latest --template=wp
 
 
 プロジェクト名を聞かれるのでプロジェクト名を入力してエンターしてください。
-その後、「使用するフレームワーク」の選択から「WordPress」を選択することで「Orelop WP」がインストールされます。
 
-その他、CSSやJavaScriptのライブラリなどは任意で選択してください。
+続いて、利用するCSSのプリプロセッサーやフレームワーク（SassやTailwindCSS）や、
+JavaScriptのライブラリ（GSAPやLenis、Rola）などを任意で選択してください。
+
 
 
 ## 開発用サーバーの起動
@@ -60,13 +60,11 @@ npm run dev
 ```
 
 ■ yarn
-
 ```
 yarn dev
 ```
 
 ■ pnpm
-
 ```
 pnpm dev
 ```
@@ -86,9 +84,7 @@ WordPress の管理画面は、[http://localhost:8080/wp-admin/](http://localhos
 以下のコマンドで、サーバーが立ち上がっているかを確認できます。
 
 ```
-
 docker ps
-
 ```
 
 ### WordPress の環境を変更する
@@ -103,21 +99,16 @@ docker ps
 WordPress を構築後に「.wp-env.json」を編集をした場合は、WordPress のサーバーを停止後に、以下のコマンドで環境をアップデートする必要があります。
 
 ■ npm
-
 ```
 npm run wp:update
-
 ```
 
 ■ yarn
-
 ```
 yarn wp:update
-
 ```
 
 ■ pnpm
-
 ```
 pnpm wp:update
 ```
@@ -127,21 +118,16 @@ pnpm wp:update
 開発を中断するなど、WordPress の環境を停止するには以下のコマンドを実行します。
 
 ■ npm
-
 ```
 npm run wp:stop
-
 ```
 
 ■ yarn
-
 ```
 yarn wp:stop
-
 ```
 
 ■ pnpm
-
 ```
 pnpm wp:stop
 ```
@@ -151,24 +137,17 @@ pnpm wp:stop
 開発が終了したなどにより、WordPress の環境を破棄する場合は、以下のコマンドを実行することで、Docker イメージごと削除することができます。
 
 ■ npm
-
 ```
-
 npm run wp:destroy
-
 ```
 
 ■ yarn
-
 ```
-
 yarn wp:destroy
-
 ```
 
 
 ■ pnpm
-
 ```
 pnpm wp:destroy
 ```
@@ -196,14 +175,14 @@ WordPress テーマの PHP ファイルは「src」ディレクトリに配置�
 ## CSS/SCSS の開発
 
 「Orelop WP」は、CSS、SCSS のどちらの開発にも対応しています。
-（SASSを利用する場合はインストール時にオプションで「SASS」を選択してください。）
+（Sassを利用する場合はインストール時にオプションで「Sass」を選択してください。）
 
 CSS で開発するには「src/assets/styles/」ディレクトリ内にある「global.css」を利用し、
 SASS で開発する場合は、「global.css」を「global.scss」に変更してください。
 
 なお、ファイル名を変更する場合は、エントリーポイントである、「src/assets/scripts/main.js」内で読み込んでいる CSS のファイル名も変更してください。
 
-例：css のファイル名を「common.css」に変更
+例：cssを「global.scss」に変更
 
 ```js
 // import "../styles/global.css";
@@ -286,16 +265,18 @@ import "../styles/global.scss";
 
 `@import` による、CSS ファイルの分割にも対応しています。
 
-例：「base」ディレクトリ内の「oreset.css」と「components」ディレクトリ内の「hero.css」の読み込み
+例：「base」ディレクトリ内の「reset.css」と「components」ディレクトリ内の「hero.css」の読み込み
 
 ```css
-@import "base/oreset.css";
-@import "components/hero.css";
+@layer settings, base, layouts, vendors, components, utilities;
+
+@import "base/reset.css" layer(base);
+@import "components/hero.css" layer(components);
 ```
 
 
 
-SASSの場合は、glob パターンによる読み込みにも対応しています。
+Sassの場合は、glob パターンによる読み込みにも対応しています。
 
 例：「fondation」ディレクトリと「layout」ディレクトリ内にあるすべての.scss ファイルの読み込み
 
@@ -356,26 +337,23 @@ JavaScript の開発は「src/assets/scripts/」ディレクトリ内の「main.
 以下のコマンドを実行すると、「dist」ディレクトリが作成され、納品用のテーマファイルが生成されます。
 
 ■ npm
-
 ```
 npm run build
 ```
 
 ■ yarn
-
 ```
 yarn build
 ```
 
 ■ pnpm
-
 ```
 pnpm build
 ```
 
 ビルドを行うと、「src/assets/images/」ディレクトリ内の画像ファイルを最適化（圧縮や、webp ファイルなどの生成）を行い、ハッシュ値をつけて「dist/assets/images/」内に配置されます。
 
-画像の圧縮率や、生成するフォーマットなどに関しては、[vite-plugin-image-oretimaizer](https://github.com/hilosiva/vite-plugin-image-oretimaizer)を利用しているため、[vite-plugin-image-oretimaizer](https://github.com/hilosiva/vite-plugin-image-oretimaizer)のオプションで設定して下さい。
+画像の圧縮率や、生成するフォーマットなどに関しては、[@hilosiva/vite-plugin-image-optimizer](https://github.com/hilosiva/vite-plugins/tree/main/packages/vite-plugin-image-optimizer)を利用しているため、[@hilosiva/vite-plugin-image-optimizer](https://github.com/hilosiva/vite-plugins/tree/main/packages/vite-plugin-image-optimizer)のオプションで設定して下さい。
 
 PHP ファイルや、css ファイル内の画像ファイルのパスは自動でファイルパスが置き換わります。（webp が利用できるブラウザで閲覧した場合、「.jpg」や「.png」ファイルは、webp ファイルがレスポンスされます。）
 
@@ -388,19 +366,16 @@ PHP ファイルや、css ファイル内の画像ファイルのパスは自動
 以下のコマンドを実行すると、「dist」ディレクトリをテーマフォルダとして、サーバーが立ち上がります。
 
 ■ npm
-
 ```
 npm run preview
 ```
 
 ■ yarn
-
 ```
 yarn preview
 ```
 
 ■ pnpm
-
 ```
 pnpm preview
 ```
