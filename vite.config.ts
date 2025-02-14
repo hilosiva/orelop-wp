@@ -1,9 +1,9 @@
+import path from "path";
+import { viteImageOptimazer } from "@hilosiva/vite-plugin-image-optimizer";
+import { vitePhpLoader } from "@hilosiva/vite-plugin-php-loader";
 import { defineConfig } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
-import { viteImageOretimaizer } from "@hilosiva/vite-plugin-image-oretimaizer";
-import { vitePhpLoader } from "@hilosiva/vite-plugin-php-loader";
 import vaultcss from "vite-plugin-vaultcss";
-import path from "path";
 
 const dir = {
   src: "src",
@@ -17,9 +17,9 @@ export default defineConfig({
   publicDir: `../${dir.publicDir}`,
   plugins: [
     vitePhpLoader({
-      useWpEnv: true
+      useWpEnv: true,
     }),
-    viteImageOretimaizer({
+    viteImageOptimazer({
       generate: {
         preserveExt: true,
       },
