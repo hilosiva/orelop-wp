@@ -1,7 +1,7 @@
 {
   "core": "https://ja.wordpress.org/latest-ja.zip",
   "phpVersion": null,
-  "plugins": ["https://downloads.wordpress.org/plugin/query-monitor.3.7.1.zip", "https://downloads.wordpress.org/plugin/wp-multibyte-patch.2.9.zip"],
+  "plugins": ["https://downloads.wordpress.org/plugin/query-monitor.latest-stable.zip", "https://downloads.wordpress.org/plugin/wp-multibyte-patch.latest-stable.zip"],
   "themes": [],
   "port": 8080,
   "env": {

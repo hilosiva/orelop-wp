@@ -1,12 +1,15 @@
 {
   "name": "orelopwp",
   "private": true,
-  "version": "1.0.0",
+  "version": "3.0.0",
   "type": "module",
   "author": "Shibata Hironori",
   "browserslist": [
     "defaults"
   ],
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "wp-env": "wp-env",
     "wp:start": "wp-env start",
@@ -26,26 +29,20 @@
     "lint:css": "stylelint --fix **/*.{css,scss,sass}"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@hilosiva/vite-plugin-image-oretimaizer": "^0.2.4",
-    "@hilosiva/vite-plugin-php-oreder": "^0.1.5",
+    "@hilosiva/vite-plugin-php-loader": "^0.1.0",
     "@markuplint/php-parser": "^3.7.0",
     "@wordpress/env": "^10.17.0",
-    "autoprefixer": "^10.4.14",
-    "css-declaration-sorter": "^7.0.0",
-    "css-mqpacker": "^7.0.0",
-    "execa": "^7.1.1",
-    "glob": "^10.2.7",
-    "markuplint": "^3.10.0",
-    "path": "^0.12.7",
-    "postcss-nesting": "^11.2.2",
-    "prettier": "^2.8.8",
-    "sass": "^1.63.2",
-    "sharp": "^0.32.1",
-    "stylelint": "^15.7.0",
-    "stylelint-config-recess-order": "^4.2.0",
-    "stylelint-config-standard-scss": "^9.0.0",
+    "markuplint": "^4.9.2",
+    "sharp": "^0.33.4",
+    "stylelint": "^16.7.0",
+    "stylelint-config-recess-order": "^5.0.1",
     "svgo": "^3.0.2",
+    "vaultcss": "^0.1.5",
+    "vaultscript": "^0.1.5",
     "vite": "^6.1.0",
-    "vite-plugin-static-copy": "^0.16.0"
+    "vite-plugin-static-copy": "^2.2.0",
+    "vite-plugin-vaultcss": "^0.1.5"
   }
 }

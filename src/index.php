@@ -1,13 +1,7 @@
 <?php get_header(); ?>
+
 <main>
-
-
-  <?php if (have_posts()) : ?>
-    <?php while (have_posts()): the_post(); ?>
-      <!-- 繰り返し処理する内容 -->
-      <?php the_title(); ?>
-    <?php endwhile; ?>
-  <?php endif; ?>
+  <?php get_template_part('template/welcome'); ?>
 </main>
 
 <?php get_footer(); ?>

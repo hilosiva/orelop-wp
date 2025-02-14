@@ -1,8 +1,8 @@
 import { defineConfig } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
-import sassGlobImports from "vite-plugin-sass-glob-import";
 import { viteImageOretimaizer } from "@hilosiva/vite-plugin-image-oretimaizer";
-import { vitePhpOreder } from "@hilosiva/vite-plugin-php-oreder";
+import { vitePhpLoader } from "@hilosiva/vite-plugin-php-loader";
+import vaultcss from "vite-plugin-vaultcss";
 import path from "path";
 
 const dir = {
@@ -16,16 +16,14 @@ export default defineConfig({
   base: "./",
   publicDir: `../${dir.publicDir}`,
   plugins: [
-    vitePhpOreder({
-      proxy: "http://localhost:8080",
-      useWpEnv: true,
+    vitePhpLoader({
+      useWpEnv: true
     }),
     viteImageOretimaizer({
       generate: {
         preserveExt: true,
       },
     }),
-
     viteStaticCopy({
       targets: [
         {
@@ -38,6 +36,7 @@ export default defineConfig({
         reloadPageOnChange: true,
       },
     }),
+    vaultcss(),
   ],
   build: {
     outDir: `../${dir.outDir}`,
@@ -45,17 +44,14 @@ export default defineConfig({
     cssTarget: "safari14",
     rollupOptions: {
       output: {
-        entryFileNames: `assets/js/[name]-[hash].js`,
-        chunkFileNames: `assets/js/[name]-[hash].js`,
-        assetFileNames: ({ name }) => {
-          if (/\.( gif|jpeg|jpg|png|svg|webp| )$/.test(name ?? "")) {
-            return "assets/img/[name]-[hash][extname]";
+        entryFileNames: "assets/scripts/[name]-[hash].js",
+        chunkFileNames: "assets/scripts/[name]-[hash].js",
+        assetFileNames: ({ names }) => {
+          if (/\.( gif|jpeg|jpg|png|svg|webp| )$/.test(names[0] ?? "")) {
+            return "assets/images/[name]-[hash][extname]";
           }
-          if (/\.css$/.test(name ?? "")) {
-            return "assets/css/[name]-[hash][extname]";
-          }
-          if (/\.js$/.test(name ?? "")) {
-            return "assets/js/[name]-[hash][extname]";
+          if (/\.css$/.test(names[0] ?? "")) {
+            return "assets/styles/[name]-[hash][extname]";
           }
           return "assets/[name]-[hash][extname]";
         },
@@ -72,13 +68,8 @@ export default defineConfig({
   },
 
   server: {
-    strictPort: true,
-    open: true,
-    port: 3000,
-    https: false,
-    hmr: {
-      host: "localhost",
-    },
+    open: "http://localhost:8080",
+    host: true,
   },
 
   css: {

@@ -2,7 +2,7 @@
 /*======================================
   Includes
 ======================================*/
-require_once('lib/ViteHelper.php'); // こちは削除しないでください。
+require_once('lib/ViteHelper.php'); // こちらは削除しないでください。
 
 
 

@@ -1,17 +1,16 @@
 {
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "biomejs.biome",
   "editor.codeActionsOnSave": {
     "source.fixAll.stylelint": "explicit",
-    "source.fixAll": "explicit"
+    "source.fixAll": "explicit",
+    "quickfix.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
   },
   "less.validate": false,
   "scss.validate": false,
   "css.validate": false,
   "stylelint.validate": ["css", "less", "postcss", "scss", "sass"],
-  "files.associations": {
-    "*.css": "postcss"
-  },
   "intelephense.stubs": [
     "apache",
     "bcmath",

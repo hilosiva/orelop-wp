@@ -1,15 +1,15 @@
 <?php
-define('THEME_URL', get_template_directory_uri());
+define('DIST_THEME_URL', get_template_directory_uri());
 
 
 class ViteHelper
 
 {
   const IS_DEVELOPMENT = true;
-  const VITE_SERVER = 'http://localhost:3000';
-  const ENTRY_POINT = 'assets/js/main.js';
-  const DIST_URL = THEME_URL;
-  const PUBLIC_URL = self::IS_DEVELOPMENT ? '' : THEME_URL;
+  const VITE_SERVER = 'http://192.168.1.5:5555';
+  const ENTRY_POINT = 'assets/scripts/main.js';
+  const DIST_URL = DIST_THEME_URL;
+  const PUBLIC_URL = self::IS_DEVELOPMENT ? self::VITE_SERVER : DIST_THEME_URL;
 
 
   private $js_dependencies;
@@ -42,7 +42,7 @@ class ViteHelper
   private function setManifest()
   {
     if (!self::IS_DEVELOPMENT) {
-      $this->manifest = json_decode(file_get_contents($this->root . 'manifest.json'), true);
+      $this->manifest = json_decode(file_get_contents($this->root . '.vite/manifest.json'), true);
     }
   }
 
@@ -58,12 +58,27 @@ class ViteHelper
   public function setFilter()
   {
     add_filter('script_loader_tag', array($this, 'addScriptAttibute'), 10, 2);
+
+    if (self::IS_DEVELOPMENT) {
+      add_filter('template_directory_uri', array($this, 'overrideThemeUrl'));
+      add_filter('stylesheet_directory_uri', array($this, 'overrideThemeUrl'));
+    }
   }
 
 
   public function corsHttpHeader()
   {
     header("Access-Control-Allow-Origin: *");
+  }
+
+
+  public function overrideThemeUrl($url)
+  {
+    if (self::IS_DEVELOPMENT) {
+      $theme_name = get_template();
+      return self::VITE_SERVER;
+    }
+    return $url;
   }
 
 
@@ -106,3 +121,5 @@ class ViteHelper
 }
 
 $ViteHelper = new ViteHelper();
+
+define('THEME_URL', get_template_directory_uri());

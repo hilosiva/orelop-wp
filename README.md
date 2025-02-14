@@ -13,8 +13,9 @@ WordPress の環境には「[wp-env](https://ja.wordpress.org/team/handbook/bloc
 Orelop WP を利用するには、あらかじめ以下のツールをマシンにインストールしておいて下さい。
 
 - [Docker](https://www.docker.com/)
-- [Node.js](https://nodejs.org/ja) >=16.4.0
+- [Node.js](https://nodejs.org/ja) >=20
 - [git](https://git-scm.com/)
+
 
 ## インストール
 
@@ -24,49 +25,58 @@ Orelop WP を利用するには、あらかじめ以下のツールをマシン�
 cd /path/to/project-directory
 ```
 
-2. 以下のコマンドを実行して、「Orelop WP」をダウンロードします。
+2. 以下のコマンドを実行して、「Orelop WP」をインストールします。
 
+
+■ npm
 ```bash
-npx degit hilosiva/orelop-wp#main <project-name>
+npm create orelop@latest
 ```
 
-3. プロジェクトディレクトリに移動します。
-
+■ yarn
 ```bash
-cd <project-name>
+yarn create orelop@latest
 ```
 
-4. 必要な依存関係をインストールします。
-
+■ pnpm
 ```bash
-npm install
+pnpm create orelop@latest
 ```
+
+
+プロジェクト名を聞かれるのでプロジェクト名を入力してエンターしてください。
+その後、「使用するフレームワーク」の選択から「WordPress」を選択することで「Orelop WP」がインストールされます。
+
+その他、CSSやJavaScriptのライブラリなどは任意で選択してください。
+
 
 ## 開発用サーバーの起動
 
 以下のコマンドで WordPress の環境と開発用サーバーを起動できます。
 
 ■ npm
-
 ```
-
 npm run dev
-
 ```
 
 ■ yarn
 
 ```
-
 yarn dev
+```
+
+■ pnpm
 
 ```
+pnpm dev
+```
+
 
 ※初回は WordPress の環境を構築するため時間が掛かります。
 
-開発環境は、[http://localhost:3000](http://localhost:3000)で立ち上がります。
+開発環境は、[http://localhost:8080](http://localhost:8080)で立ち上がります。
 
-WordPress の管理画面は、[http://localhost:3000/wp-admin/](http://localhost:3000/wp-admin/)でアクセスできます。
+WordPress の管理画面は、[http://localhost:8080/wp-admin/](http://localhost:8080/wp-admin/)でアクセスできます。
 
 - ユーザ名：admin
 - パスワード：password
@@ -95,7 +105,6 @@ WordPress を構築後に「.wp-env.json」を編集をした場合は、WordPre
 ■ npm
 
 ```
-
 npm run wp:update
 
 ```
@@ -103,9 +112,14 @@ npm run wp:update
 ■ yarn
 
 ```
-
 yarn wp:update
 
+```
+
+■ pnpm
+
+```
+pnpm wp:update
 ```
 
 ### WordPress のサーバーを停止
@@ -115,7 +129,6 @@ yarn wp:update
 ■ npm
 
 ```
-
 npm run wp:stop
 
 ```
@@ -123,9 +136,14 @@ npm run wp:stop
 ■ yarn
 
 ```
-
 yarn wp:stop
 
+```
+
+■ pnpm
+
+```
+pnpm wp:stop
 ```
 
 ### WordPress のサーバーを破棄する
@@ -148,6 +166,15 @@ yarn wp:destroy
 
 ```
 
+
+■ pnpm
+
+```
+pnpm wp:destroy
+```
+
+
+
 ## WordPress テーマの作成
 
 WordPress テーマの PHP ファイルは「src」ディレクトリに配置して下さい。
@@ -165,24 +192,45 @@ WordPress テーマの PHP ファイルは「src」ディレクトリに配置�
  <link rel="icon" href="<?php echo esc_url(ViteHelper::PUBLIC_URL); ?>/favicon.ico">
 ```
 
+
 ## CSS/SCSS の開発
 
 「Orelop WP」は、CSS、SCSS のどちらの開発にも対応しています。
+（SASSを利用する場合はインストール時にオプションで「SASS」を選択してください。）
 
-### CSS で開発
+CSS で開発するには「src/assets/styles/」ディレクトリ内にある「global.css」を利用し、
+SASS で開発する場合は、「global.css」を「global.scss」に変更してください。
 
-CSS で開発するには「src/assets/css/」ディレクトリ内にある「style.css」を利用して下さい。
-
-なお、ファイル名を変更する場合は、エントリーポイントである、「src/assets/js/main.js」内で読み込んでいる CSS のファイル名も変更してください。
+なお、ファイル名を変更する場合は、エントリーポイントである、「src/assets/scripts/main.js」内で読み込んでいる CSS のファイル名も変更してください。
 
 例：css のファイル名を「common.css」に変更
 
 ```js
-// import "../css/style.css";
-import "../css/common.css";
+// import "../styles/global.css";
+import "../styles/global.scss";
 ```
 
-「Orelop WP」は、「[CSS Nesting Module](https://www.w3.org/TR/css-nesting-1/)」に対応しているため、スタイルルールのネスト（入れ子）が利用できます。
+
+
+### ベースCSS
+「global.css」にはデフォルトで以下の記述により俺流のベーススタイルのCSSを読み込んでいます。
+
+```css
+@import "vaultcss";
+```
+
+これにより、俺流のリセットや便利なカスタムプロパティなどが利用できます。
+
+不必要な場合は削除してください。
+また、resetのみ利用したい場合には、以下のように resetスタイルのみ読み込むことも可能です。
+
+```css
+@import "vaultcss/reset";
+```
+
+
+### ネスティングルール
+「Orelop Static」は、「[CSS Nesting Module](https://www.w3.org/TR/css-nesting-1/)」に対応しているため、スタイルルールのネスト（入れ子）が利用できます。
 
 例
 
@@ -198,20 +246,56 @@ import "../css/common.css";
 }
 ```
 
-また、`@import` による、CSS ファイルを分割にも対応しています。
+### カスタムメディアクエリ
+カスタムメディアクエリを使うことも可能です。
 
-例：「object」ディレクトリ内の「hero.css」と「post.css」の読み込み
+デフォルトでは、以下のカスタムメディアクエリが自動で登録されます。
+
 
 ```css
-@import "object/hero.css";
-@import "object/post.css";
+@custom-media --xxs (width >= 23.4375rem);
+@custom-media --xs (width >= 25rem);
+@custom-media --sm (width >= 36rem);
+@custom-media --md (width >= 48rem);
+@custom-media --lg (width >= 64rem);
+@custom-media --xl (width >= 80rem);
+@custom-media --xxl (width >= 96rem);
 ```
 
-### SCSS で開発
 
-scss を使って CSS を開発する場合は、「src/assets/scss/」ディレクトリ内にある「style.scss」を利用して下さい。
+従って、以下のように少ない記述量でレスポンシブ対応が可能です。
 
-glob パターンによる読み込みにも対応しています。
+
+```css
+.section {
+  display: block grid;
+  grid-template-columns: repeat(var(--cols, 1), minmax(0, 1fr));
+
+  @media (--md) {
+    --cols: 2;
+  }
+
+  @media (--lg) {
+    --cols: 3;
+  }
+}
+```
+
+
+### @import
+
+`@import` による、CSS ファイルの分割にも対応しています。
+
+例：「base」ディレクトリ内の「oreset.css」と「components」ディレクトリ内の「hero.css」の読み込み
+
+```css
+@import "base/oreset.css";
+@import "components/hero.css";
+```
+
+
+
+SASSの場合は、glob パターンによる読み込みにも対応しています。
 
 例：「fondation」ディレクトリと「layout」ディレクトリ内にあるすべての.scss ファイルの読み込み
 
@@ -220,9 +304,50 @@ glob パターンによる読み込みにも対応しています。
 @use "layout/**/*.scss";
 ```
 
+### オリジナル関数
+CSSファイル内では、下記のオリジナル関数が利用可能です。
+
+- `fluid()` : 最小値、最大値から `clamp()` を生成
+
+```css
+p {
+  /*
+    fluid(最小値, 最大値, [最小ビューポート(px)], [最大ビューポート(px)])
+    最小ビューポートの初期値： 320
+    最大ビューポートの初期値： 1920
+  */
+  font-size: fluid(16px 24px); /* clamp(1rem, 0.8786407766990291rem + 0.517799352750809vw, 1.5rem) */
+}
+```
+
+最小値と最大値には `px` または `rem` が使えます。
+
+
+最小ビューポートや、 最大ビューポートの初期値を変更する場合は、`vite.config.ts` で、`vaultcss(),` のオプションを指定します。
+
+```ts
+export default defineConfig({
+  ...
+  plugins: [
+    ...
+    vaultcss({
+      fluid: {
+        minViewPort: 375, // 最小ビューポートの初期値を 375 に変更
+        maxViewPort: 1440, // 最大ビューポートの初期値を 1440 に変更
+        baseFontSize: 16, // ベースのフォントサイズ（規定値: 16）
+      }
+    }),
+  ],
+  ...
+})
+```
+
+
+
+
 ## JavaScript の開発
 
-JavaScript の開発は「src/assets/js/」ディレクトリ内の「main.js」を利用して下さい。
+JavaScript の開発は「src/assets/scripts/」ディレクトリ内の「main.js」を利用して下さい。
 
 このファイルが「Orelop WP」のエントリーポイントとなっています。
 
@@ -242,15 +367,21 @@ npm run build
 yarn build
 ```
 
-ビルドを行うと、「src/assets/img/」ディレクトリ内の画像ファイルを最適化（圧縮や、webp ファイルなどの生成）を行い、ハッシュ値をつけて「dist/assets/img/」内に配置されます。
+■ pnpm
+
+```
+pnpm build
+```
+
+ビルドを行うと、「src/assets/images/」ディレクトリ内の画像ファイルを最適化（圧縮や、webp ファイルなどの生成）を行い、ハッシュ値をつけて「dist/assets/images/」内に配置されます。
 
 画像の圧縮率や、生成するフォーマットなどに関しては、[vite-plugin-image-oretimaizer](https://github.com/hilosiva/vite-plugin-image-oretimaizer)を利用しているため、[vite-plugin-image-oretimaizer](https://github.com/hilosiva/vite-plugin-image-oretimaizer)のオプションで設定して下さい。
 
 PHP ファイルや、css ファイル内の画像ファイルのパスは自動でファイルパスが置き換わります。（webp が利用できるブラウザで閲覧した場合、「.jpg」や「.png」ファイルは、webp ファイルがレスポンスされます。）
 
-.scss ファイルや.css ファイルは、「dist/assets/css/」内に「main-[ハッシュ値].css」というファイル名で配置されます。
+.scss ファイルや.css ファイルは、「dist/assets/styles/」内に「index-[ハッシュ値].css」というファイル名で配置されます。
 
-.js ファイルは「dist/assets/css/」内に「main-[ハッシュ値].js」というファイル名で配置されます。
+.js ファイルは「dist/assets/scripts/」内に「main-[ハッシュ値].js」というファイル名で配置されます。
 
 ## 納品データのプレビュー
 
@@ -268,6 +399,13 @@ npm run preview
 yarn preview
 ```
 
+■ pnpm
+
+```
+pnpm preview
+```
+
+
 ## データベースのエクスポート
 
 以下のコマンドを実行すると、「sql/」ディレクトリに「wpenv.sql」という SQL ファイルがエクスポートされます。
@@ -284,6 +422,13 @@ npm run wp:export
 yarn wp:export
 ```
 
+■ pnpm
+
+```
+pnpm wp:export
+```
+
+
 ## データベースのインポート
 
 以下のコマンドを実行すると、「sql/」ディレクトリにある「wpenv.sql」という SQL ファイルをインポートします。
@@ -299,6 +444,13 @@ npm run wp:import
 ```
 yarn wp:import
 ```
+
+■ pnpm
+
+```
+pnpm wp:import
+```
+
 
 ## ライセンス
 
