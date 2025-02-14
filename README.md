@@ -1,4 +1,4 @@
-# Orelop WP（仮）
+# Orelop WP
 
 ![screenshot](https://github.com/hilosiva/orelop-wp/blob/main/src/screenshot.png)
 
@@ -172,13 +172,13 @@ WordPress テーマの PHP ファイルは「src」ディレクトリに配置�
 ```
 
 
-## CSS/SCSS の開発
+## CSS/Sass の開発
 
-「Orelop WP」は、CSS、SCSS のどちらの開発にも対応しています。
+「Orelop WP」は、CSS、Sass のどちらの開発にも対応しています。
 （Sassを利用する場合はインストール時にオプションで「Sass」を選択してください。）
 
 CSS で開発するには「src/assets/styles/」ディレクトリ内にある「global.css」を利用し、
-SASS で開発する場合は、「global.css」を「global.scss」に変更してください。
+Sass で開発する場合は、「global.css」を「global.scss」に変更してください。
 
 なお、ファイル名を変更する場合は、エントリーポイントである、「src/assets/scripts/main.js」内で読み込んでいる CSS のファイル名も変更してください。
 
