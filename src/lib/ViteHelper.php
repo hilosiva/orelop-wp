@@ -6,7 +6,7 @@ class ViteHelper
 
 {
   const IS_DEVELOPMENT = true;
-  const VITE_SERVER = 'http://192.168.1.5:4173';
+  const VITE_SERVER = 'http://192.168.1.16:5555';
   const ENTRY_POINT = 'assets/scripts/main.js';
   const DIST_URL = DIST_THEME_URL;
   const PUBLIC_URL = self::IS_DEVELOPMENT ? self::VITE_SERVER : DIST_THEME_URL;
