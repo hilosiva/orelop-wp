@@ -1,0 +1,25 @@
+name: バグ報告
+description: 不具合の報告をします。
+title: "Bug: "
+labels: ["bug"]
+type: Bug
+body:
+  - type: textarea
+    id: overview
+    attributes:
+      label: 概要
+      description: |
+        不具合の内容を記載してください。
+        見た目に関する内容は、スクリーンショットを貼り付けてください。
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: 不具合が起きたブラウザを選択してください。
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge

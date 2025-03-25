@@ -3,8 +3,8 @@
   "editor.defaultFormatter": "biomejs.biome",
   "editor.codeActionsOnSave": {
     "source.fixAll.stylelint": "explicit",
+    "source.fixAll.biome": "explicit",
     "source.fixAll": "explicit",
-    "quickfix.biome": "explicit",
     "source.organizeImports.biome": "explicit"
   },
   "less.validate": false,
@@ -49,10 +49,6 @@
     "pcntl",
     "pcre",
     "PDO",
-    "pdo_ibm",
-    "pdo_mysql",
-    "pdo_pgsql",
-    "pdo_sqlite",
     "pgsql",
     "Phar",
     "posix",
@@ -86,6 +82,9 @@
     "zlib",
     "wordpress"
   ],
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[php]": {
     "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
   }

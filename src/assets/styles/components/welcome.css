@@ -35,7 +35,6 @@
   }
 }
 
-
 .posts {
   z-index: 1;
   place-self: end;
@@ -43,7 +42,6 @@
   margin-block-end: 1rem;
   background-color: #000;
 }
-
 
 .post {
   padding: 2rem;

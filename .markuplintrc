@@ -2,9 +2,7 @@
   "parser": {
     "\\.php$": "@markuplint/php-parser"
   },
-  "extends": [
-    "markuplint:recommended"
-  ],
+  "extends": ["markuplint:recommended"],
   "rules": {},
   "overrides": {
     "./**/*.php": {

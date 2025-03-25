@@ -1,3 +1,10 @@
 {
-  "recommendations": ["yusukehirao.vscode-markuplint", "bmewburn.vscode-intelephense-client", "stylelint.vscode-stylelint",  "biomejs.biome"]
+  "recommendations": [
+    "yusukehirao.vscode-markuplint",
+    "bmewburn.vscode-intelephense-client",
+    "stylelint.vscode-stylelint",
+    "biomejs.biome",
+    "esbenp.prettier-vscode",
+    "EditorConfig.EditorConfig"
+  ]
 }

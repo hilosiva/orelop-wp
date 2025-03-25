@@ -1,0 +1,14 @@
+name: タスクの追加
+description: 新たなタスクを追加します。
+title: "Task: "
+type: Task
+body:
+  - type: textarea
+    id: task
+    attributes:
+      label: 作業内容
+      description: |
+        作業内容を記載してください
+        スクリーンショットがある場合は貼り付けてください。
+    validations:
+      required: true

@@ -1,0 +1,26 @@
+changelog:
+  exclude:
+    authors:
+      - github-actions
+  categories:
+    - title: Features
+      labels:
+        - enhancement
+    - title: Fixes
+      labels:
+        - bug
+    - title: Docs
+      labels:
+        - documentation
+    - title: Refactors
+      labels:
+        - refactor
+    - title: Upgrades
+      labels:
+        - dependencies
+    - title: Internal
+      labels:
+        - internal
+    - title: Other Changes
+      labels:
+        - "*"
