@@ -1,7 +1,7 @@
 {
   "name": "orelopwp",
   "private": true,
-  "version": "3.0.1",
+  "version": "3.0.2",
   "type": "module",
   "author": "Shibata Hironori",
   "browserslist": ["defaults"],
@@ -50,11 +50,11 @@
     "prettier": "^3.5.3",
     "stylelint": "^16.7.0",
     "stylelint-config-recess-order": "^5.0.1",
-    "vaultcss": "^0.1.10",
+    "vaultcss": "^0.2.2",
     "vaultscript": "^0.1.6",
     "vite": "^6.1.0",
     "vite-plugin-static-copy": "^2.2.0",
-    "vite-plugin-vaultcss": "^0.1.9"
+    "vite-plugin-vaultcss": "^0.2.2"
   },
   "volta": {
     "node": "20.10.0"
